@@ -2,7 +2,7 @@ STATION_NAME,STATION_DESCRIPTIVE_NAME,latitude,longitude
 Kedzie-Homan,Kedzie-Homan (Blue Line),41.874341,-87.70604
 Illinois Medical District,Illinois Medical District (Blue Line),41.875706,-87.673932
 California,California  (Blue Line),41.921939,-87.69689
-Western,Western (Blue Line - O'Hare Branch),41.916157,-87.687364
+Western (O'Hare Branch),Western (Blue Line - O'Hare Branch),41.916157,-87.687364
 Cicero,Cicero (Blue Line),41.871574,-87.745154
 Harlem,Harlem (Blue Line - O'Hare Branch),41.98227,-87.8089
 Clinton,Clinton (Blue Line),41.875539,-87.640984
@@ -16,7 +16,7 @@ Belmont,Belmont (Blue Line),41.938132,-87.712359
 Forest Park,Forest Park (Blue Line),41.874257,-87.817318
 Pulaski,Pulaski (Blue Line),41.873797,-87.725663
 Washington,Washington (Blue Line),41.883164,-87.62944
-Western,Western (Blue Line - Forest Park Branch),41.875478,-87.688436
+Western (Forest Park Branch),Western (Blue Line - Forest Park Branch),41.875478,-87.688436
 Austin,Austin (Blue Line),41.870851,-87.776812
 Racine,Racine (Blue Line),41.87592,-87.659458
 O'Hare,O'Hare (Blue Line),41.97766526,-87.90422307
