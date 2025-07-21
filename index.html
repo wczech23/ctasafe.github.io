@@ -43,7 +43,7 @@
 
     <br><br>
 
-    <label for="hour_ent">Select time:</label>
+    <label for="hour_ent">Entering time:</label>
     <select id="hour_ent" name="hour_ent">
       <option value="">-- Hour --</option>
     </select>
@@ -86,7 +86,7 @@
 
     <br><br>
 
-    <label for="hour_ext">Select time:</label>
+    <label for="hour_ext">Exiting Time:</label>
     <select id="hour_ext" name="hour_ext">
       <option value="">-- Hour --</option>
     </select>
@@ -217,7 +217,47 @@
       });
   });
 
-  
+  // Submit Button Form
+  const submitBtn = document.getElementById("submitBtn");
+
+  const requiredInputs = [
+    document.getElementById("lineDropdown_ent"),
+    document.getElementById("stationDropdown_ent"),
+    document.getElementById("hour_ent"),
+    document.getElementById("minute_ent"),
+    document.getElementById("ampm_ent"),
+    document.getElementById("lineDropdown_exit"),
+    document.getElementById("stationDropdown_exit"),
+    document.getElementById("hour_exit"),
+    document.getElementById("minute_exit"),
+    document.getElementById("ampm_exit")
+  ];
+
+  function validateForm() {
+    const allFilled = requiredInputs.every(input => input.value && !input.value.includes("Select"));
+    submitBtn.disabled = !allFilled;
+  }
+
+  requiredInputs.forEach(input => input.addEventListener("change", validateForm));
+
+  submitBtn.addEventListener("click", () => {
+    const data = {
+      entering: {
+        line: document.getElementById("lineDropdown_ent").value,
+        station: document.getElementById("stationDropdown_ent").value,
+        time: `${document.getElementById("hour_ent").value}:${document.getElementById("minute_ent").value} ${document.getElementById("ampm_ent").value}`
+      },
+      exiting: {
+        line: document.getElementById("lineDropdown_exit").value,
+        station: document.getElementById("stationDropdown_exit").value,
+        time: `${document.getElementById("hour_exit").value}:${document.getElementById("minute_exit").value} ${document.getElementById("ampm_exit").value}`
+      }
+    };
+    console.log("Form submitted with data:", data);
+    // TODO: Replace this with your backend POST/fetch call
+  });
+
+
   
   // Map Display
   const map = L.map('map').setView([41.88, -87.63], 10);
