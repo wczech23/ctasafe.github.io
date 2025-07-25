@@ -5,6 +5,12 @@ import os
 import pandas as pd
 
 def main():
+    relevant_crimes = [
+        "THEFT", "DECEPTIVE PRACTICE", "BATTERY", "ASSAULT", "ROBBERY", "CRIMINAL SEXUAL ASSAULT", "WEAPONS VIOLATION",
+        "SEX OFFENSE", "HOMICIDE", "INTIMIDATION", "ARSON", "STALKING", "KIDNAPPING", "OBSCENITY", "HUMAN TRAFFICKING"
+    ]
+
+
     req_offset = 0
     response = requests.get(f"https://data.cityofchicago.org/resource/x2n5-8w5q.json?$limit=10000&$offset={req_offset}")
     if response.status_code != 200:
@@ -26,10 +32,12 @@ def main():
             print(req_offset)
             time.sleep(3)
     
+    
     df_master['name'] = df_master['_primary_decsription']
     print(df_master['date_of_occurrence'].dtype)
     print(df_master[['name', 'latitude', 'longitude', 'date_of_occurrence']].head(10))
     df_master = df_master[['name', 'latitude', 'longitude', 'date_of_occurrence']]
+    df_master = df_master[df_master['name'].isin(relevant_crimes)]
     df_master.to_csv("chicago_crime_data.csv", index=False)
     return
 
